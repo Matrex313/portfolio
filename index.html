@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>منصة التداول الاحترافية - TradeHub</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- OVERLAY -->
+    <div class="overlay" id="overlay"></div>
+
+    <!-- SIDEBAR -->
+    <aside class="sidebar" id="sidebar">
+        <div class="sidebar-header">
+            <h3>🎯 القائمة</h3>
+            <button class="btn-close-sidebar" onclick="toggleSidebar()">✕</button>
+        </div>
+        <nav class="sidebar-nav">
+            <a href="#" class="sidebar-link active">
+                <span class="icon">🏠</span>
+                <span>الرئيسية</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <span class="icon">📊</span>
+                <span>التحليلات</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <span class="icon">💼</span>
+                <span>المحفظة</span>
+            </a>
+            <a href="#" class="sidebar-link">
+                <span class="icon">⚙️</span>
+                <span>الإعدادات</span>
+            </a>
+        </nav>
+    </aside>
+
+    <!-- NAVBAR -->
+    <nav class="navbar glass">
+        <button class="btn-menu" onclick="toggleSidebar()">☰</button>
+        <div class="logo-container">
+            <span class="logo-icon">💹</span>
+            <h1 class="logo">TradeHub Pro</h1>
+        </div>
+        <div class="navbar-center">
+            <div class="search-box glass">
+                <input type="text" placeholder="ابحث عن العملات..." id="searchInput">
+                <button class="btn-search">🔍</button>
+            </div>
+        </div>
+        <div class="navbar-right">
+            <button class="btn-icon glow" title="الإشعارات">🔔
+                <span class="badge">5</span>
+            </button>
+            <button class="btn-icon" title="الرسائل">💬</button>
+            <div class="avatar-container">
+                <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ccircle cx='50' cy='50' r='50' fill='%2309c372'/%3E%3Ctext x='50' y='50' text-anchor='middle' dy='.3em' fill='white' font-size='50'%3E👤%3C/text%3E%3C/svg%3E" alt="avatar" class="avatar">
+                <div class="dropdown glass">
+                    <a href="#">👤 الملف الشخصي</a>
+                    <a href="#">⚙️ الإعدادات</a>
+                    <a href="#">🚪 تسجيل الخروج</a>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- BREADCRUMB -->
+    <nav class="breadcrumb glass">
+        <a href="#" class="breadcrumb-link">الرئيسية</a>
+        <span class="breadcrumb-sep">/</span>
+        <a href="#" class="breadcrumb-link">التداول</a>
+        <span class="breadcrumb-sep">/</span>
+        <span class="breadcrumb-current">لوحة التحكم</span>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <main class="main-container">
+        <!-- HERO SECTION -->
+        <section class="hero glass grad">
+            <div class="hero-content">
+                <h2>مرحباً في منصة التداول الاحترافية</h2>
+                <p>استثمر بذكاء مع أدوات تحليل متقدمة و��سعار حقيقية</p>
+                <button class="btn btn-primary glow" onclick="showModal()">🚀 ابدأ التداول الآن</button>
+            </div>
+            <div class="hero-stats">
+                <div class="stat-card glass pill">
+                    <span class="stat-label">إجمالي المستخدمين</span>
+                    <span class="stat-value">+500K</span>
+                </div>
+                <div class="stat-card glass pill">
+                    <span class="stat-label">العملات المتاحة</span>
+                    <span class="stat-value">250+</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- TABS SECTION -->
+        <section class="section glass">
+            <h3>📋 الأقسام الرئيسية</h3>
+            <div class="tabs">
+                <button class="tab-btn active" onclick="switchTab(0)">السوق الحية</button>
+                <button class="tab-btn" onclick="switchTab(1)">محفظتي</button>
+                <button class="tab-btn" onclick="switchTab(2)">التحليلات</button>
+                <button class="tab-btn" onclick="switchTab(3)">الإشعارات</button>
+            </div>
+            
+            <!-- TAB CONTENT 1: MARKET -->
+            <div class="tab-content active">
+                <h4>🔴 أسعار مباشرة</h4>
+                <div class="grid grid-3">
+                    <div class="card glass">
+                        <div class="card-header">
+                            <h5>Bitcoin</h5>
+                            <span class="badge glow">BTC</span>
+                        </div>
+                        <div class="card-price">$42,350</div>
+                        <div class="change positive">↑ +5.2%</div>
+                        <button class="btn btn-small pill">شراء</button>
+                    </div>
+                    <div class="card glass">
+                        <div class="card-header">
+                            <h5>Ethereum</h5>
+                            <span class="badge">ETH</span>
+                        </div>
+                        <div class="card-price">$2,845</div>
+                        <div class="change positive">↑ +3.8%</div>
+                        <button class="btn btn-small pill">شراء</button>
+                    </div>
+                    <div class="card glass">
+                        <div class="card-header">
+                            <h5>Gold</h5>
+                            <span class="badge">GOLD</span>
+                        </div>
+                        <div class="card-price">$2,125/oz</div>
+                        <div class="change negative">↓ -1.2%</div>
+                        <button class="btn btn-small pill">شراء</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB CONTENT 2: PORTFOLIO -->
+            <div class="tab-content">
+                <h4>💼 محفظتي</h4>
+                <div class="list">
+                    <div class="list-item glass">
+                        <div class="list-avatar">📈</div>
+                        <div class="list-content">
+                            <h5>Bitcoin</h5>
+                            <p>2.5 BTC</p>
+                        </div>
+                        <div class="list-value">
+                            <span class="value">$105,875</span>
+                            <span class="change positive">+12%</span>
+                        </div>
+                    </div>
+                    <div class="list-item glass">
+                        <div class="list-avatar">📊</div>
+                        <div class="list-content">
+                            <h5>Ethereum</h5>
+                            <p>15 ETH</p>
+                        </div>
+                        <div class="list-value">
+                            <span class="value">$42,675</span>
+                            <span class="change positive">+8%</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB CONTENT 3: ANALYTICS -->
+            <div class="tab-content">
+                <h4>📈 التحليلات</h4>
+                <div class="progress-section">
+                    <div class="progress-item">
+                        <label>أداء المحفظة</label>
+                        <div class="progress-bar glass">
+                            <div class="progress-fill" style="width: 75%"></div>
+                        </div>
+                        <span class="progress-text">75%</span>
+                    </div>
+                    <div class="progress-item">
+                        <label>نسبة الأرباح</label>
+                        <div class="progress-bar glass">
+                            <div class="progress-fill" style="width: 60%"></div>
+                        </div>
+                        <span class="progress-text">60%</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- TAB CONTENT 4: NOTIFICATIONS -->
+            <div class="tab-content">
+                <h4>🔔 الإشعارات</h4>
+                <div class="alerts">
+                    <div class="alert alert-success">✅ نجاح: تم إتمام عملية الشراء</div>
+                    <div class="alert alert-warning">⚠️ تحذير: تغير كبير في السعر</div>
+                    <div class="alert alert-error">❌ خطأ: فشل الاتصال</div>
+                    <div class="alert alert-info">ℹ️ معلومة: تحديث جديد متاح</div>
+                </div>
+            </div>
+        </section>
+
+        <!-- ACCORDION SECTION -->
+        <section class="section glass">
+            <h3>📚 الأسئلة الشائعة</h3>
+            <div class="accordion">
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        ❓ كيف أبدأ التداول؟
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        <p>يمكنك البدء بسهولة عن طريق إنشاء حساب وإضافة أموالك ثم اختيار الأصول المرغوبة.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        ❓ ما هي الرسوم؟
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        <p>رسومنا من أقل في السوق، 0.1% لكل عملية تداول.</p>
+                    </div>
+                </div>
+                <div class="accordion-item">
+                    <button class="accordion-header" onclick="toggleAccordion(this)">
+                        ❓ هل المنصة آمنة؟
+                        <span class="accordion-icon">▼</span>
+                    </button>
+                    <div class="accordion-body">
+                        <p>نعم، نستخدم أحدث تقنيات التشفير والحماية لضمان أمان أموالك.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- DROPDOWN MENU SECTION -->
+        <section class="section glass">
+            <h3>📌 القوائم المنسدلة</h3>
+            <div class="grid grid-2">
+                <div class="dropdown-container">
+                    <label>اختر نوع الأصل:</label>
+                    <select class="select glass">
+                        <option>العملات الرقمية</option>
+                        <option>الأسهم</option>
+                        <option>السلع</option>
+                        <option>العملات الأجنبية</option>
+                    </select>
+                </div>
+                <div class="dropdown-container">
+                    <label>اختر الفترة الزمنية:</label>
+                    <select class="select glass">
+                        <option>يومي</option>
+                        <option>أسبوعي</option>
+                        <option>شهري</option>
+                        <option>سنوي</option>
+                    </select>
+                </div>
+            </div>
+        </section>
+
+        <!-- FORM SECTION WITH TEXT INPUT -->
+        <section class="section glass">
+            <h3>💳 إنشاء صفقة جديدة</h3>
+            <form class="form" onsubmit="submitForm(event)">
+                <div class="form-group">
+                    <label for="tradeAmount">المبلغ المراد استثماره:</label>
+                    <input type="number" id="tradeAmount" class="input glass" placeholder="أدخل المبلغ..." required>
+                </div>
+                <div class="form-group">
+                    <label for="tradeNotes">ملاحظات:</label>
+                    <textarea id="tradeNotes" class="textarea glass" placeholder="أضف ملاحظاتك..." rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn btn-primary pill glow">💾 حفظ الصفقة</button>
+            </form>
+        </section>
+
+        <!-- GRID & LIST VIEW SECTION -->
+        <section class="section glass">
+            <div class="view-toggle">
+                <h3>🎨 عرض المحفظة</h3>
+                <div class="toggle-btns">
+                    <button class="toggle-btn active" onclick="switchView('grid')">⊟ شبكة</button>
+                    <button class="toggle-btn" onclick="switchView('list')">☰ قائمة</button>
+                </div>
+            </div>
+
+            <!-- GRID VIEW -->
+            <div id="gridView" class="active">
+                <div class="grid grid-4">
+                    <div class="grid-item glass spin">
+                        <div class="grid-icon">💰</div>
+                        <h5>الرصيد الكلي</h5>
+                        <p class="gradient-text">$25,450.80</p>
+                    </div>
+                    <div class="grid-item glass spin">
+                        <div class="grid-icon">📈</div>
+                        <h5>الأرباح اليوم</h5>
+                        <p class="gradient-text">+$1,250.50</p>
+                    </div>
+                    <div class="grid-item glass spin">
+                        <div class="grid-icon">🎯</div>
+                        <h5>العائد السنوي</h5>
+                        <p class="gradient-text">+18.5%</p>
+                    </div>
+                    <div class="grid-item glass spin">
+                        <div class="grid-icon">⚡</div>
+                        <h5>الصفقات النشطة</h5>
+                        <p class="gradient-text">12</p>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LIST VIEW -->
+            <div id="listView" style="display: none;">
+                <div class="list">
+                    <div class="list-header">
+                        <span class="col-1">الأصل</span>
+                        <span class="col-2">الكمية</span>
+                        <span class="col-3">القيمة</span>
+                        <span class="col-4">الأداء</span>
+                    </div>
+                    <div class="list-item glass">
+                        <span class="col-1">💰 Bitcoin</span>
+                        <span class="col-2">2.5 BTC</span>
+                        <span class="col-3">$105,875</span>
+                        <span class="col-4 change positive">+12%</span>
+                    </div>
+                    <div class="list-item glass">
+                        <span class="col-1">📊 Ethereum</span>
+                        <span class="col-2">15 ETH</span>
+                        <span class="col-3">$42,675</span>
+                        <span class="col-4 change positive">+8%</span>
+                    </div>
+                    <div class="list-item glass">
+                        <span class="col-1">🏆 Gold</span>
+                        <span class="col-2">50 oz</span>
+                        <span class="col-3">$106,250</span>
+                        <span class="col-4 change negative">-3%</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- MENU & DRAWER SECTION -->
+        <section class="section glass">
+            <h3>📱 المزيد من الخيارات</h3>
+            <div class="menu-grid">
+                <div class="menu-item glass" onclick="showDrawer()">
+                    <span class="menu-icon">📂</span>
+                    <span class="menu-text">فتح درج العمليات</span>
+                </div>
+                <div class="menu-item glass" onclick="showPopup()">
+                    <span class="menu-icon">🎁</span>
+                    <span class="menu-text">العروض الخاصة</span>
+                </div>
+                <div class="menu-item glass" onclick="showModal()">
+                    <span class="menu-icon">🔐</span>
+                    <span class="menu-text">التحقق الأمني</span>
+                </div>
+                <div class="menu-item glass">
+                    <span class="menu-icon">📞</span>
+                    <span class="menu-text">اتصل بنا</span>
+                </div>
+            </div>
+        </section>
+
+        <!-- LAYOUT SECTION -->
+        <section class="section glass">
+            <h3>🎯 التخطيط والتصميم</h3>
+            <div class="layout-container">
+                <div class="layout-box glass">
+                    <h5>الخيار 1</h5>
+                    <p>تخطيط عمودي</p>
+                </div>
+                <div class="layout-box glass">
+                    <h5>الخيار 2</h5>
+                    <p>تخطيط أفقي</p>
+                </div>
+                <div class="layout-box glass">
+                    <h5>الخيار 3</h5>
+                    <p>تخطيط مختلط</p>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- DRAWER -->
+    <div class="drawer glass" id="drawer">
+        <div class="drawer-header">
+            <h3>📂 درج العمليات</h3>
+            <button class="btn-close" onclick="closeDrawer()">✕</button>
+        </div>
+        <div class="drawer-content">
+            <div class="drawer-item">
+                <h5>✅ العملية 1</h5>
+                <p>تم شراء 2.5 Bitcoin</p>
+                <span class="time">قبل ساعة</span>
+            </div>
+            <div class="drawer-item">
+                <h5>📊 العملية 2</h5>
+                <p>تم بيع 10 Ethereum</p>
+                <span class="time">قبل 3 ساعات</span>
+            </div>
+            <div class="drawer-item">
+                <h5>🎯 العملية 3</h5>
+                <p>تم تحويل الأموال</p>
+                <span class="time">قبل يوم</span>
+            </div>
+        </div>
+    </div>
+
+    <!-- MODAL -->
+    <div class="modal glass" id="modal">
+        <div class="modal-content glass">
+            <div class="modal-header">
+                <h3>🔐 التحقق الأمني</h3>
+                <button class="btn-close" onclick="closeModal()">✕</button>
+            </div>
+            <div class="modal-body">
+                <p>من فضلك أدخل رمز التحقق:</p>
+                <input type="text" class="input glass" placeholder="XXXX-XXXX" maxlength="9">
+                <div class="spinner"></div>
+            </div>
+            <div class="modal-footer">
+                <button class="btn btn-secondary" onclick="closeModal()">إلغاء</button>
+                <button class="btn btn-primary glow" onclick="showAlert('success', 'تم التحقق بنجاح! ✅')">تحقق</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- POPUP -->
+    <div class="popup glass" id="popup">
+        <div class="popup-content glass">
+            <button class="popup-close" onclick="closePopup()">✕</button>
+            <h3>🎁 عرض حصري!</h3>
+            <p>احصل على خصم 20% على أول 5 صفقات!</p>
+            <div class="glow-box">
+                <code>TRADE20</code>
+            </div>
+            <button class="btn btn-primary pill glow" onclick="closePopup()">موافق</button>
+        </div>
+    </div>
+
+    <!-- FOOTER -->
+    <footer class="footer glass">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h4>عن المنصة</h4>
+                <ul>
+                    <li><a href="#">من نحن</a></li>
+                    <li><a href="#">شروط الخدمة</a></li>
+                    <li><a href="#">سياسة الخصوصية</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>الدعم والمساعدة</h4>
+                <ul>
+                    <li><a href="#">مركز المساعدة</a></li>
+                    <li><a href="#">اتصل بنا</a></li>
+                    <li><a href="#">الأسئلة الشائعة</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h4>تابعنا</h4>
+                <div class="social-links">
+                    <a href="#" class="social-icon">f</a>
+                    <a href="#" class="social-icon">𝕏</a>
+                    <a href="#" class="social-icon">📷</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>جميع الحقوق محفوظة © 2026 TradeHub Pro | منصة التداول الموثوقة</p>
+        </div>
+    </footer>
+
+    <!-- ALERT -->
+    <div class="alert-container" id="alertContainer"></div>
+
+    <script src="script.js"></script>
+</body>
+</html>
